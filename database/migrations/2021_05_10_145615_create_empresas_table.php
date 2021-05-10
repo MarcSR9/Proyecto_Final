@@ -15,11 +15,11 @@ class CreateEmpresasTable extends Migration
     {
         Schema::create('empresas', function (Blueprint $table) {
             $table->id();
-            $table->string('nif');
+            $table->string('nif')->unique();
             $table->string('empresa');
             $table->string('pais');
             $table->string('web');
-            $table->string('descripcion');
+            $table->longText('descripcion');
             $table->string('localizacion');
             $table->integer('telefono');
             $table->string('email')->unique();
