@@ -23,6 +23,7 @@ class CreateEmpresasTable extends Migration
             $table->string('localizacion');
             $table->integer('telefono');
             $table->string('email')->unique();
+            $table->string('password');
             $table->string('sector');
             $table->timestamps();
         });

@@ -11,32 +11,29 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    protected $table = 'users';
+
     protected $fillable = [
-        'name',
+        'dni',
+        'nombre',
+        'apellidos',
+        'fecha_nacimiento',
+        'telefono',
         'email',
-        'password',
+        'estudios',
+        'experiencia',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
+        'id',
         'password',
-        'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
+    public function resolveRouteBinding($id, $deleted = null)
+    {
+        return $this->where('id', $id)->firstOrFail();
+    }
+
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
