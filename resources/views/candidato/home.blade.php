@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -18,6 +18,25 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+@endsection
+
+--}}
+
+
+
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+        <p>Busca ofertas en tu sector</p>
+        <input type="text" placeholder="Programador, seo, analista...">
+        <a href="offers">
+            <button>Buscar</button>
+        </a>
     </div>
 </div>
 @endsection
