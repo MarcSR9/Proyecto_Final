@@ -11,28 +11,15 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-    protected $table = 'users';
-
     protected $fillable = [
-        'dni',
-        'nombre',
-        'apellidos',
-        'fecha_nacimiento',
-        'telefono',
         'email',
-        'estudios',
-        'experiencia',
-    ];
-
-    protected $hidden = [
-        'id',
         'password',
     ];
 
-    public function resolveRouteBinding($id, $deleted = null)
-    {
-        return $this->where('id', $id)->firstOrFail();
-    }
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
 
     protected $casts = [
         'email_verified_at' => 'datetime',
