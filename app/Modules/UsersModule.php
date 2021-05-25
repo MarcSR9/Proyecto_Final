@@ -7,14 +7,14 @@ use DB;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
-use App\Modules\ModuleUsers;
+use App\Modules\UsersModule;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
-class ModuleUsers
+class UsersModule
 {
     public function crearUsuario($email, $password, $tipo)
     {

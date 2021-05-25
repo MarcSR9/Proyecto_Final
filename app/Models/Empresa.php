@@ -14,9 +14,8 @@ class Empresa extends Model
     protected $fillable = [
         'nif',
         'empresa',
-        'pais',
         'web',
-        'descipcion',
+        'descripcion',
         'localizacion',
         'telefono',
         'email',
@@ -25,7 +24,6 @@ class Empresa extends Model
 
     protected $hidden = [
         'id',
-        'password',
     ];
 
     public function resolveRouteBinding($id, $deleted = null)

@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
         	EmpresasSeeder::class,
         	CandidatosSeeder::class,
         	NoticiasSeeder::class,
-            OfertasSeeder::class
+            OfertasSeeder::class,
+            UsersSeeder::class
         ]);
     }
 }

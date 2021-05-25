@@ -20,7 +20,6 @@ class EmpresasSeeder extends Seeder
         DB::table('empresas')->insert([
             'nif' => '12345A',
             'empresa' => 'Stormlight',
-            'pais' => 'España',
             'web' => 'www.stormlight.com',
             'descripcion' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id facilisis lorem. Aenean at neque nec lacus aliquet congue at a tortor. Aenean non dignissim est. Duis sodales enim a diam egestas, eget ornare felis ullamcorper. Sed sed odio a metus dapibus consectetur. Phasellus ut elementum est, eu ultricies lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce condimentum ultricies risus. Etiam pellentesque volutpat ante. Vivamus nec velit eu odio posuere consequat.',
             'localizacion' => 'Barcelona, España',
@@ -35,7 +34,6 @@ class EmpresasSeeder extends Seeder
         DB::table('empresas')->insert([
             'nif' => '12345B',
             'empresa' => 'Pachamama',
-            'pais' => 'Perú',
             'web' => 'www.pachamama.com',
             'descripcion' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id facilisis lorem. Aenean at neque nec lacus aliquet congue at a tortor. Aenean non dignissim est. Duis sodales enim a diam egestas, eget ornare felis ullamcorper. Sed sed odio a metus dapibus consectetur. Phasellus ut elementum est, eu ultricies lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce condimentum ultricies risus. Etiam pellentesque volutpat ante. Vivamus nec velit eu odio posuere consequat.',
             'localizacion' => 'Kuwaq Yaku, Perú',

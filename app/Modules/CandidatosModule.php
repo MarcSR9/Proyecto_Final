@@ -16,7 +16,7 @@ use Illuminate\Support\Str;
 
 class CandidatosModule
 {
-    public function crearCandidato($email, $dni, $nombre, $apellidos, $fecha_nacimiento, $telefono, $telefono, $estudios, $experiencia)
+    public function crearCandidato($email, $dni, $nombre, $apellidos, $fecha_nacimiento, $telefono, $estudios, $experiencia)
     {
         return Candidato::create([
             'email' => $email,

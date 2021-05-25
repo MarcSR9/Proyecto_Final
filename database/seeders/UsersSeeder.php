@@ -14,7 +14,6 @@ class UsersSeeder extends Seeder {
         'email',
         'password',
     ];
-{
     /**
      * Run the database seeds.
      *

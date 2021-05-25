@@ -24,4 +24,10 @@ Route::get('/help', function() {
 });
 
 
+
+// Rutas de empresa
+Route::get('/nuevaEmpresa', 'EmpresasController@nuevaEmpresa')->name('nuevaEmpresa');
+Route::post('/nuevaEmpresa', 'EmpresasController@crearEmpresa')->name('crearEmpresa');
+
+
 Auth::routes();

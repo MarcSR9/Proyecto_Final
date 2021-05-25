@@ -20,7 +20,7 @@ class CandidatosController extends Controller
 
         $exists = $usermodule->getUserByEmail($data['email']);
         if(is_null($exists)){
-            $response = $usersmodule->crearUsuario($data['email'], $data['password'], $tipo);
+            $response = $usermodule->crearUsuario($data['email'], $data['password'], $tipo);
 
             $response = $candidatosmodule->crearCandidato($data['email'], $data['dni'], $data['nombre'], $data['apellidos'], $data['fecha_nacimiento'], $data['telefono'], $data['estudios'], $data['experiencia']);
 

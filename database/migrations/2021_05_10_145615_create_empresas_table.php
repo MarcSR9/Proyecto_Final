@@ -17,7 +17,6 @@ class CreateEmpresasTable extends Migration
             $table->id();
             $table->string('nif')->unique();
             $table->string('empresa');
-            $table->string('pais');
             $table->string('web');
             $table->longText('descripcion')->nullable();
             $table->string('localizacion');

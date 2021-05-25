@@ -6,12 +6,12 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h4>Crear nuevo usuario</h4>
-                    <a class="btn btn-outline-secondary btn-arrow-left" href="{{ route('usuarios.lista') }}">< Volver</a>
+                    <h4>Registrar nuevo candidato</h4>
+                    <a class="btn btn-outline-secondary btn-arrow-left" href="">< Volver</a>
                 </div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('usuarios.crear') }}">
+                    <form method="POST" action="{{-- route('usuarios.crear') --}}">
                         @csrf
 
                         <div class="form-group row">

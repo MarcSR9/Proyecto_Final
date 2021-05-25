@@ -173,6 +173,7 @@ class ComposerStaticInit2890f1db24a691f91470a9558c004582
         'A' => 
         array (
             'Asm89\\Stack\\' => 12,
+            'App\\Modules\\' => 12,
             'App\\' => 4,
         ),
     );
@@ -493,6 +494,10 @@ class ComposerStaticInit2890f1db24a691f91470a9558c004582
         array (
             0 => __DIR__ . '/..' . '/asm89/stack-cors/src',
         ),
+        'App\\Modules\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app/Modules',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -518,12 +523,10 @@ class ComposerStaticInit2890f1db24a691f91470a9558c004582
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
+        'App\\Http\\Controllers\\CandidatosController' => __DIR__ . '/../..' . '/app/Http/Controllers/CandidatosController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\EmpresasController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmpresasController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
-        'App\\Http\\Controllers\\NoticiasController' => __DIR__ . '/../..' . '/app/Http/Controllers/NoticiasController.php',
-        'App\\Http\\Controllers\\OfertasController' => __DIR__ . '/../..' . '/app/Http/Controllers/OfertasController.php',
-        'App\\Http\\Controllers\\UsersController' => __DIR__ . '/../..' . '/app/Http/Controllers/UsersController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -538,6 +541,8 @@ class ComposerStaticInit2890f1db24a691f91470a9558c004582
         'App\\Models\\Noticia' => __DIR__ . '/../..' . '/app/Models/Noticia.php',
         'App\\Models\\Oferta' => __DIR__ . '/../..' . '/app/Models/Oferta.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
+        'App\\Modules\\CandidatosModule' => __DIR__ . '/../..' . '/app/Modules/CandidatosModule.php',
+        'App\\Modules\\EmpresasModule' => __DIR__ . '/../..' . '/app/Modules/EmpresasModule.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
@@ -646,6 +651,7 @@ class ComposerStaticInit2890f1db24a691f91470a9558c004582
         'Cron\\MinutesField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MinutesField.php',
         'Cron\\MonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
         'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
+        'Database\\Seeders\\CandidatosSeeder' => __DIR__ . '/../..' . '/database/seeders/CandidatosSeeder.php',
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
         'Database\\Seeders\\EmpresasSeeder' => __DIR__ . '/../..' . '/database/seeders/EmpresasSeeder.php',
         'Database\\Seeders\\NoticiasSeeder' => __DIR__ . '/../..' . '/database/seeders/NoticiasSeeder.php',
