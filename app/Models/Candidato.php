@@ -23,7 +23,7 @@ class Candidato extends Model
     ];
 
     protected $hidden = [
-        'id',
+        'id', 'dni'
     ];
 
     public function resolveRouteBinding($id, $deleted = null)
