@@ -18,7 +18,7 @@ class EmpresasModule
 {
     public function crearEmpresa($email, $nif, $empresa, $web, $descripcion, $localizacion, $telefono, $sector)
     {
-        return Empresas::create([
+        return Empresa::create([
             'email' => $email,
             'nif' => $nif,
             'empresa' => $empresa,
@@ -36,6 +36,20 @@ class EmpresasModule
         $empresa->experiencia = $newdata["experiencia"];
         $empresa->save();
         return $empresa;
+    }
+
+    public function mostrarEmpresa($empresa)
+    {
+        $email = auth()->user()->email;
+        $empresa = DB::table('empresas')->where('email', $email)->first();
+        //dd($empresa);
+        return $empresa;
+    }
+
+    public function listarOfertas()
+    {
+        $usuarios = DB::table('ofertas')->where('deleted_at', null)->get();
+        return $usuarios;
     }
 
 }

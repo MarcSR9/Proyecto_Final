@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Modules\UsersModule;
 use App\Modules\EmpresasModule;
+use App\Modules\OfertasModule;
 use App\Models\Empresa;
 use App\Models\User;
 
@@ -34,14 +35,24 @@ class EmpresasController extends Controller
         }
     }
 
-    public function store(Request $request)
+    public function mostrarEmpresa(Empresa $empresa)
     {
-        //
+        $empresasModule = new EmpresasModule();
+        $empresa = $empresasModule->mostrarEmpresa($empresa);
+        //dd($empresa);
+        return view('empresa.perfilEmpresa', [
+            'empresa' => $empresa
+        ]);
     }
 
-    public function show($id)
+    protected function listarOfertas()
     {
-        //
+        $empresa = auth()->user()->nif;
+        $ofertasModule = new OfertasModule();
+        $ofertas = $ofertasModule->listarOfertas($empresa);
+        return view('empresas.listarOfertas', [
+            'ofertas' => $ofertas
+        ]);
     }
 
     public function edit($id)
