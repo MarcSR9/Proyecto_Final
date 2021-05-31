@@ -15,14 +15,14 @@ class CreateOfertasTable extends Migration
     {
         Schema::create('ofertas', function (Blueprint $table) {
             $table->id();
-            $table->string('empresa');
+            $table->string('creador');
             $table->string('titulo');
             $table->longText('descripcion');
             $table->string('localizacion');
             $table->string('sueldo');
             $table->longText('requisitos');
             $table->string('sector');
-            $table->integer('inscritos');
+            $table->integer('inscritos')->nullable();
             $table->timestamps();
         });
     }

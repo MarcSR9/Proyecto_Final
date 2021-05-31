@@ -47,17 +47,24 @@ class EmpresasController extends Controller
 
     protected function listarOfertas()
     {
-        $empresa = auth()->user()->nif;
         $ofertasModule = new OfertasModule();
-        $ofertas = $ofertasModule->listarOfertas($empresa);
-        return view('empresas.listarOfertas', [
+        $ofertas = $ofertasModule->listarOfertas();
+        return view('empresa.ofertasEmpresa', [
             'ofertas' => $ofertas
         ]);
     }
 
-    public function edit($id)
+    protected function nuevaOferta()
     {
-        //
+        return view('empresa.crearOferta');
+    }
+
+    public function publicarOferta(Request $request)
+    {
+        $data = $request->post();
+        $ofertasModule = new OfertasModule();
+        $ofertas = $ofertasModule->publicarOferta($data['titulo'], $data['descripcion'], $data['localizacion'], $data['sueldo'],$data['requisitos'], $data['sector']);
+        return redirect()->route('listarOfertas')->with('status-success', 'La oferta se ha publicado correctamente');
     }
 
     public function update(Request $request, $id)

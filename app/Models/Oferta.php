@@ -12,7 +12,7 @@ class Oferta extends Model
     protected $table = 'ofertas';
 
     protected $fillable = [
-        'empresa',
+        'creador',
         'titulo',
         'descripcion',
         'localizacion',

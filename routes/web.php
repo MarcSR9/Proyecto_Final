@@ -28,7 +28,16 @@ Route::get('/help', function() {
 // Rutas de empresa
 Route::get('/nuevaEmpresa', 'EmpresasController@nuevaEmpresa')->name('nuevaEmpresa');
 Route::post('/nuevaEmpresa', 'EmpresasController@crearEmpresa')->name('crearEmpresa');
-Route::get('/perfilEmpresa', 'EmpresasController@mostrarEmpresa')->name('perfilEmpresa');
+
+
+Route::group(['middleware' => 'auth'], function(){
+
+	// Rutas de empresa
+	Route::get('/perfilEmpresa', 'EmpresasController@mostrarEmpresa')->name('perfilEmpresa');
+	Route::get('/perfilEmpresa/ofertas', 'EmpresasController@listarOfertas')->name('listarOfertas');
+	Route::get('/nuevaOferta', 'EmpresasController@nuevaOferta')->name('nuevaOferta');
+	Route::post('/nuevaOferta', 'EmpresasController@publicarOferta')->name('publicarOferta');
+});
 
 
 Auth::routes();
