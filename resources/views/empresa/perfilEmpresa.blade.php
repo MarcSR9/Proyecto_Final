@@ -18,7 +18,7 @@
             <a class="btn btn-outline-primary col-md-2 font-weight-bold mt-2" href="{{ route('listarOfertas') }}">Ofertas publicadas</a>
         </div>
         <footer class="text-center footer mt-5">
-            <p class="text-black-50 mb-3">Contacto: <a href="">{{ $empresa->email }}</a> - Tel: {{ $empresa->telefono }}</p>
+            <p class="text-black-50 mb-3">Contacto: <img src="{{URL('/images/correo.png')}}" style="width: 4%;"> <a href="">{{ $empresa->email }}</a> - <img src="{{URL('/images/telefono.png')}}" style="width: 4%;">  {{ $empresa->telefono }}</p>
         </footer>
     </div>
 </div>

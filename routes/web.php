@@ -24,6 +24,9 @@ Route::get('/help', function() {
 });
 
 
+// Rutas de candidato
+Route::get('/nuevoCandidato', 'CandidatosController@nuevoCandidato')->name('nuevoCandidato');
+Route::post('/nuevoCandidato', 'CandidatosController@crearCandidato')->name('crearCandidato');
 
 // Rutas de empresa
 Route::get('/nuevaEmpresa', 'EmpresasController@nuevaEmpresa')->name('nuevaEmpresa');
@@ -32,6 +35,8 @@ Route::post('/nuevaEmpresa', 'EmpresasController@crearEmpresa')->name('crearEmpr
 
 Route::group(['middleware' => 'auth'], function(){
 
+	// Rutas de candidato
+	Route::get('/perfilCandidato', 'CandidatosController@mostrarCandidato')->name('perfilCandidato');
 	// Rutas de empresa
 	Route::get('/perfilEmpresa', 'EmpresasController@mostrarEmpresa')->name('perfilEmpresa');
 	Route::get('/perfilEmpresa/ofertas', 'EmpresasController@listarOfertas')->name('listarOfertas');

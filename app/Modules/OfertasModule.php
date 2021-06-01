@@ -25,12 +25,6 @@ class OfertasModule
         return $ofertas;
     }
 
-    public function getEmpresa($email)
-    {
-        $empresa = DB::table('empresas')->select('empresa')->where('email', $email)->get();
-        return $empresa;
-    }
-
     public function publicarOferta($titulo, $descripcion, $localizacion, $sueldo, $requisitos, $sector)
     {
         $email = auth()->user()->email;

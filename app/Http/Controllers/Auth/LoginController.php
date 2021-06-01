@@ -32,7 +32,7 @@ class LoginController extends Controller
         $tipo = Auth::user()->tipo;
         switch ($tipo){
             case 'Candidato':
-                //return route('perfilCandidato');
+                return route('perfilCandidato');
                 //redirect()->route('home')
                 break;
             case 'Empresa':

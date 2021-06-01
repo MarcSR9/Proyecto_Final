@@ -22,26 +22,20 @@
     <body>
         <div id="app">
             <nav class="navbar navbar-expand-md navbar-light bg-white navbar-laravel shadow-sm">
-                <div class="container">
+                <div class="container col-md-10">
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        <img class="ml-0 d-block" src="{{URL('/images/logo.png')}}" style="width: 25%;">
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav mr-auto">
-
-                        </ul>
-
-                        <!-- Right Side Of Navbar -->
-                        <ul class="navbar-nav ml-auto">
+                    <div class="collapse navbar-collapse d-flex flex-row-reverse" id="navbarSupportedContent">
+                        <ul class="navbar-nav">
                             <!-- Authentication Links -->
                            <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                     <span class="caret">{{ Auth::user()->email }} </span>
+                                    <h5>{{ Auth::user()->email }}</h5>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -60,8 +54,9 @@
                     </div>
                 </div>
             </nav>
+            @include('layouts.session-status')
 
-            <main class="py-4">
+            <main class="py-4 col-md-12">
                 @yield('content')
             </main>
         </div>

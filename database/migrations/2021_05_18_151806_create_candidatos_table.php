@@ -21,7 +21,6 @@ class CreateCandidatosTable extends Migration
             $table->date('fecha_nacimiento')->format('d-m-Y');
             $table->integer('telefono');
             $table->string('email')->unique();
-            $table->string('password');
             $table->longText('estudios')->nullable();
             $table->longText('experiencia')->nullable();
             $table->rememberToken();

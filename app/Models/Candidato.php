@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Candidato extends Model
 {
-        use HasFactory, Notifiable;
+        use HasFactory;
 
     protected $table = 'candidatos';
 

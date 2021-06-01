@@ -29,7 +29,7 @@ class EmpresasController extends Controller
 
             $response = $empresasModule->crearEmpresa($data['email'], $data['nif'], $data['empresa'], $data['web'], $data['descripcion'],$data['localizacion'], $data['telefono'], $data['sector']);
 
-            return redirect()->view('home')->with('status-success', 'Tu perfil se ha creado correctamente');
+            return redirect()->route('perfilEmpresa')->with('status-success', 'Tu perfil se ha creado correctamente');
         }else{
             return back()->with('status-error', 'El email del usuario ya existe en la base de datos.');
         }

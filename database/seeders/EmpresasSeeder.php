@@ -25,7 +25,6 @@ class EmpresasSeeder extends Seeder
             'localizacion' => 'Barcelona, España',
             'telefono' => '123456789',
             'email' => 'contact@stormlight.com',
-            'password' => Hash::make('password'),
             'sector' => 'Energias renovables',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
@@ -39,7 +38,6 @@ class EmpresasSeeder extends Seeder
             'localizacion' => 'Kuwaq Yaku, Perú',
             'telefono' => '123456789',
             'email' => 'contact@pachamama.com',
-            'password' => Hash::make('password'),
             'sector' => 'Indústria farmacéutica',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')

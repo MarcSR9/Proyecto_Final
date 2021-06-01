@@ -7,7 +7,8 @@ use DB;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
-use App\Modules\ModuleUsers;
+use App\Models\Candidato;
+use App\Modules\UsersModule;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -16,14 +17,14 @@ use Illuminate\Support\Str;
 
 class CandidatosModule
 {
-    public function crearCandidato($email, $dni, $nombre, $apellidos, $fecha_nacimiento, $telefono, $estudios, $experiencia)
+    public function crearCandidato($email, $dni, $nombre, $apellidos, $birthday, $telefono, $estudios, $experiencia)
     {
         return Candidato::create([
             'email' => $email,
             'dni' => $dni,
             'nombre' => $nombre,
             'apellidos' => $apellidos,
-            'fecha_nacimiento' => $fecha_nacimiento,
+            'fecha_nacimiento' => $birthday,
             'telefono' => $telefono,
             'estudios' => $estudios,
             'experiencia' => $experiencia,
@@ -35,6 +36,14 @@ class CandidatosModule
         $candidato->estudios = $newdata["estudios"];
         $candidato->experiencia = $newdata["experiencia"];
         $candidato->save();
+        return $candidato;
+    }
+
+    public function mostrarCandidato($candidato)
+    {
+        $email = auth()->user()->email;
+        $candidato = DB::table('candidatos')->where('email', $email)->first();
+        //dd($candidato);
         return $candidato;
     }
 

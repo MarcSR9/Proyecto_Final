@@ -49,10 +49,10 @@
 
                             @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Registro usuarios') }}</a>
+                                <a class="nav-link" href="{{ route('nuevoCandidato') }}">{{ __('Registro usuarios') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('crearEmpresa') }}">{{ __('Registro empresas') }}</a>
+                                <a class="nav-link" href="{{ route('nuevaEmpresa') }}">{{ __('Registro empresas') }}</a>
                             </li>
                             @endif
                             @else
@@ -77,6 +77,7 @@
                     </div>
                 </div>
             </nav>
+            @include('layouts.session-status')
 
             <main class="py-4">
                 @yield('content')

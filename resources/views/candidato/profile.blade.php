@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container w-50">
+<div class="container">
     <div class="row mb-5 border rounded bg-white p-3">
         <div class="col">
             <div>
@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="col">
-            <img class="ml-auto d-block" src="{{URL('/images/perfil.png')}}" style="width: 125px;">
+            <img class="ml-auto d-block" src="{{URL('/images/perfil.png')}}" style="width: 10%;">
         </div>
     </div>
     <div class="row mb-5 border rounded rounded bg-white p-3">

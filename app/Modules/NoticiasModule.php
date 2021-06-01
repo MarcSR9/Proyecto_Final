@@ -19,33 +19,23 @@ class NoticiasModule
         $email = auth()->user()->email;
         $empresa = DB::table('empresas')->select('empresa')->where('email', $email)->first();
         //dd($empresa);
-        $ofertas = Oferta::join('empresas', 'ofertas.creador', '=', 'empresas.nif')
-        ->select('ofertas.*', 'empresas.empresa')
+        $noticias = Oferta::join('empresas', 'noticias.creador', '=', 'empresas.nif')
+        ->select('noticias.*', 'empresas.empresa')
         ->where('empresa', $empresa->empresa)->get();
-        return $ofertas;
+        return $noticias;
     }
 
-    public function getEmpresa($email)
-    {
-        $empresa = DB::table('empresas')->select('empresa')->where('email', $email)->get();
-        return $empresa;
-    }
-
-    public function publicarNoticia($titulo, $descripcion, $localizacion, $sueldo, $requisitos, $sector)
+    public function publicarNoticia($titulo, $descripcion)
     {
         $email = auth()->user()->email;
         $empresa = DB::table('nif')->where('email', $email)->first();
-        $creador = $empresa->empresa;
+        $autor = $empresa->empresa;
         //dd($email);
 
         return Oferta::create([
-            'creador' => $creador,
+            'autor' => $autor,
             'titulo' => $titulo,
             'descripcion' => $descripcion,
-            'localizacion' => $localizacion,
-            'sueldo' => $sueldo,
-            'requisitos' => $requisitos,
-            'sector' => $sector,
         ]);
     }
 
