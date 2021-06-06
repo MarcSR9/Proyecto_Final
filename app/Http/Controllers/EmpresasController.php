@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Modules\UsersModule;
 use App\Modules\EmpresasModule;
 use App\Modules\OfertasModule;
+use App\Modules\NoticiasModule;
 use App\Models\Empresa;
 use App\Models\User;
 
@@ -35,20 +36,37 @@ class EmpresasController extends Controller
         }
     }
 
-    public function mostrarEmpresa(Empresa $empresa)
+    public function mostrarEmpresa()
     {
         $empresasModule = new EmpresasModule();
-        $empresa = $empresasModule->mostrarEmpresa($empresa);
+        $empresa = $empresasModule->mostrarEmpresa();
         //dd($empresa);
         return view('empresa.perfilEmpresa', [
             'empresa' => $empresa
         ]);
     }
 
-    protected function listarOfertas()
+    protected function editarPerfilEmpresa(Empresa $empresa)
+    {
+        $empresasModule = new EmpresasModule();
+        $empresa = $empresasModule->mostrarEmpresa();
+
+        return view('empresa.editarPerfilEmpresa', [
+            'empresa' => $empresa
+        ]);
+    }
+
+    protected function actualizarPerfilEmpresa(Empresa $empresa, Request $request)
+    {
+        $empresasModule = new EmpresasModule();
+        $empresasModule->actualizarEmpresa($empresa, $request->post());
+        return redirect()->route('perfilEmpresa')->with('status-success', 'El perfil de la empresa se ha actualizado correctamente');
+    }
+
+    protected function listarOfertasEmpresa()
     {
         $ofertasModule = new OfertasModule();
-        $ofertas = $ofertasModule->listarOfertas();
+        $ofertas = $ofertasModule->listarOfertasEmpresa();
         return view('empresa.ofertasEmpresa', [
             'ofertas' => $ofertas
         ]);
@@ -64,7 +82,20 @@ class EmpresasController extends Controller
         $data = $request->post();
         $ofertasModule = new OfertasModule();
         $ofertas = $ofertasModule->publicarOferta($data['titulo'], $data['descripcion'], $data['localizacion'], $data['sueldo'],$data['requisitos'], $data['sector']);
-        return redirect()->route('listarOfertas')->with('status-success', 'La oferta se ha publicado correctamente');
+        return redirect()->route('listarOfertasEmpresa')->with('status-success', 'La oferta se ha publicado correctamente');
+    }
+
+    protected function nuevaNoticia()
+    {
+        return view('empresa.crearNoticia');
+    }
+
+    public function publicarNoticia(Request $request)
+    {
+        $data = $request->post();
+        $noticiasModule = new NoticiasModule();
+        $noticias = $noticiasModule->publicarNoticia($data['titulo'], $data['descripcion'], $data['localizacion'], $data['sueldo'],$data['requisitos'], $data['sector']);
+        return redirect()->route('listarNoticias')->with('status-success', 'La noticia se ha publicado correctamente');
     }
 
     public function update(Request $request, $id)

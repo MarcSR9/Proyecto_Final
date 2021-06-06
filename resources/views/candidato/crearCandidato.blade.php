@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
+<div class="container col-md-10">
+    <div class="bg-white px-5 py-4 shadow rounded ">
         <div class="col-md-12">
-            <div class="card">
+            <div class="card col-md-12">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h4>Registrar nuevo candidato</h4>
-                    <a class="btn btn-outline-secondary btn-arrow-left" href="">< Volver</a>
+                    <h4 class="text-primary font-weight-bold">Registrar nuevo candidato</h4>
+                    <a class="btn btn-outline-secondary text-primary" href="{{route('home')}}">< Volver</a>
                 </div>
 
                 <div class="card-body">
@@ -122,34 +122,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="estudios" class="col-md-4 col-form-label text-md-right">Estudios</label>
-
-                            <div class="col-md-6">
-                                <textarea id="estudios" rows=8 class="form-control @error('estudios') is-invalid @enderror" name="estudios" value="{{ old('estudios') }}" required autocomplete="estudios" ></textarea>
-
-                                @error('estudios')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="experiencia" class="col-md-4 col-form-label text-md-right">Experiencia laboral</label>
-
-                            <div class="col-md-6">
-                                <textarea id="experiencia" rows=8 class="form-control @error('experiencia') is-invalid @enderror" name="experiencia" value="{{ old('experiencia') }}" required autocomplete="experiencia" ></textarea>
-
-                                @error('experiencia')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">Crear perfil</button>
@@ -158,6 +130,9 @@
                     </form>
                 </div>
             </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            <img src="images/register-candidato.png" class="w-50">
         </div>
     </div>
 </div>

@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
+<div class="container col-md-10">
+    <div class="bg-white px-5 py-4 shadow rounded">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h4>Registrar nueva empresa</h4>
-                    <a class="btn btn-outline-secondary btn-arrow-left" href="">< Volver</a>
+                    <a class="btn btn-outline-secondary text-primary" href="{{ route('home') }}">< Volver</a>
                 </div>
 
                 <div class="card-body">

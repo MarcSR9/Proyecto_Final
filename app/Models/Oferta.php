@@ -19,7 +19,6 @@ class Oferta extends Model
         'sueldo',
         'requisitos',
         'sector',
-        'inscritos',
     ];
 
     protected $hidden = [
@@ -30,7 +29,4 @@ class Oferta extends Model
     {
         return $this->where('id', $id)->firstOrFail();
     }
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
 }

@@ -11,10 +11,12 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 use App\Models\Oferta;
+use App\Models\Inscritos;
+use App\Models\User;
 
 class OfertasModule
 {
-    public function listarOfertas()
+    public function listarOfertasEmpresa()
     {
         $email = auth()->user()->email;
         $empresa = DB::table('empresas')->select('empresa')->where('email', $email)->first();
@@ -25,10 +27,18 @@ class OfertasModule
         return $ofertas;
     }
 
+    public function listarOfertas()
+    {
+        $ofertas = Oferta::join('empresas', 'ofertas.creador', '=', 'empresas.nif')
+        ->select('ofertas.*', 'empresas.empresa')
+        ->get();
+        return $ofertas;
+    }
+
     public function publicarOferta($titulo, $descripcion, $localizacion, $sueldo, $requisitos, $sector)
     {
         $email = auth()->user()->email;
-        $empresa = DB::table('nif')->where('email', $email)->first();
+        $empresa = DB::table('empresas')->select('nif')->where('email', $email)->first();
         $creador = $empresa->empresa;
         //dd($email);
 
@@ -43,4 +53,29 @@ class OfertasModule
         ]);
     }
 
+    public function mostrarOferta($oferta)
+    {
+        $oferta = Oferta::join('empresas', 'ofertas.creador', '=', 'empresas.nif')
+        ->select('ofertas.*', 'empresas.empresa')
+            ->where('ofertas.id', $oferta->id)->first();
+            //dd($oferta);
+        return $oferta;
+    }
+
+    public function verInscritos($oferta)
+    {
+        $inscritos = Oferta::join('inscritos', 'ofertas.id', '=', 'inscritos.oferta_id')
+        ->select('ofertas.*', 'inscritos.*')
+            ->where('oferta_id', $oferta->id)->first();
+            //dd($oferta);
+        return $inscritos;
+    }
+
+    public function inscribirse(Oferta $oferta)
+    {
+        return Inscritos::create([
+            'oferta_id' => $oferta->id,
+            'candidato_id' => auth()->user()->id,
+        ]);
+    }
 }

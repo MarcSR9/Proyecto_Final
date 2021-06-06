@@ -22,7 +22,6 @@ class CreateOfertasTable extends Migration
             $table->string('sueldo');
             $table->longText('requisitos');
             $table->string('sector');
-            $table->integer('inscritos')->nullable();
             $table->timestamps();
         });
     }

@@ -18,8 +18,7 @@ class Candidato extends Model
         'fecha_nacimiento',
         'telefono',
         'email',
-        'estudios',
-        'experiencia',
+        'descripcion',
     ];
 
     protected $hidden = [

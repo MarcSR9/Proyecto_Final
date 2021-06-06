@@ -23,7 +23,6 @@ class OfertasSeeder extends Seeder
             'sueldo' => '25.000',
             'requisitos' => 'Estudios mínimos: CFGS DAM/DAW',
             'sector' => 'Informática',
-            'inscritos' => '5',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -35,7 +34,6 @@ class OfertasSeeder extends Seeder
             'sueldo' => '28.000',
             'requisitos' => 'Estudios mínimos: CFGS DAM/DAW',
             'sector' => 'Informática',
-            'inscritos' => '18',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);

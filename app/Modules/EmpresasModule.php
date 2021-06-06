@@ -30,20 +30,27 @@ class EmpresasModule
         ]);
     }
 
-    public function editarEmpresa(Empresa $empresa, $newdata)
+    public function mostrarEmpresa()
     {
-        $empresa->estudios = $newdata["estudios"];
-        $empresa->experiencia = $newdata["experiencia"];
-        $empresa->save();
+        $empresa = Empresa::leftJoin('users', 'users.email', '=', 'empresas.email')
+        ->select('empresas.*')
+        ->where('users.email', auth()->user()->email)
+        ->first();
+        $empresa = Empresa::find($empresa->id);
+        //dd($empresa);
         return $empresa;
     }
 
-    public function mostrarEmpresa($empresa)
+    public function actualizarEmpresa(Empresa $empresa, $newdata)
     {
-        $email = auth()->user()->email;
-        $empresa = DB::table('empresas')->where('email', $email)->first();
-        //dd($empresa);
-        return $empresa;
+        return Empresa::where('email', auth()->user()->email)->update([
+            'empresa' => $newdata["empresa"],
+            'web' => $newdata["web"],
+            'descripcion' => $newdata["descripcion"],
+            'localizacion' => $newdata["localizacion"],
+            'telefono' => $newdata["telefono"],
+            'sector' => $newdata["sector"],
+        ]);
     }
 
     public function listarOfertas()

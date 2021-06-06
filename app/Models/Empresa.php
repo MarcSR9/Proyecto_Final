@@ -18,12 +18,11 @@ class Empresa extends Model
         'descripcion',
         'localizacion',
         'telefono',
-        'email',
         'sector',
     ];
 
     protected $hidden = [
-        'id',
+        'id', 'email', 'nif'
     ];
 
     public function resolveRouteBinding($id, $deleted = null)

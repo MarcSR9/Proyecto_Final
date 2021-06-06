@@ -17,7 +17,7 @@ use Illuminate\Support\Str;
 
 class CandidatosModule
 {
-    public function crearCandidato($email, $dni, $nombre, $apellidos, $birthday, $telefono, $estudios, $experiencia)
+    public function crearCandidato($email, $dni, $nombre, $apellidos, $birthday, $telefono)
     {
         return Candidato::create([
             'email' => $email,
@@ -26,16 +26,17 @@ class CandidatosModule
             'apellidos' => $apellidos,
             'fecha_nacimiento' => $birthday,
             'telefono' => $telefono,
-            'estudios' => $estudios,
-            'experiencia' => $experiencia,
         ]);
     }
 
-    public function editarCandidato(Candidato $candidato, $newdata)
+    public function actualizarDescripcion(Candidato $candidato, $newdata)
     {
-        $candidato->estudios = $newdata["estudios"];
-        $candidato->experiencia = $newdata["experiencia"];
-        $candidato->save();
+        //dd($newdata);
+
+        return Candidato::where('email', auth()->user()->email)->update([
+            'descripcion' => $newdata["descripcion"],
+        ]);
+        //$candidato->save();
         return $candidato;
     }
 
@@ -46,5 +47,7 @@ class CandidatosModule
         //dd($candidato);
         return $candidato;
     }
+
+
 
 }
